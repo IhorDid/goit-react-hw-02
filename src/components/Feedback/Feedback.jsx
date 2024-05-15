@@ -1,22 +1,13 @@
-import styles from "./Feedback.module.css";
-
-const Feedback = ({ state }) => {
-  let total = 0;
-  const values = Object.values(state);
-  for (const value of values) {
-    total += value;
-  }
+const Feedback = ({ state, totalFeedback, positiveStatic }) => {
   return (
     <div>
-      {total ? (
-        <ul>
-          <li>Good : {state.good}</li>
-          <li>Neutral : {state.neutral}</li>
-          <li>Bad : {state.bad}</li>
-        </ul>
-      ) : (
-        <p>No feedback yet</p>
-      )}
+      <ul>
+        <li>Good : {state.good}</li>
+        <li>Neutral : {state.neutral}</li>
+        <li>Bad : {state.bad}</li>
+        <li>Total : {totalFeedback} </li>
+        <li>Positive : {positiveStatic} % </li>
+      </ul>
     </div>
   );
 };
